@@ -143,7 +143,7 @@ class Parse(object):
             data.apply(lambda x: write_to_file(x), axis=1)
 
     def check(self):
-        if self.train.shape[1] == self.test.shape[1] == self.test.shape[1]:
+        if self.train.shape[1] == self.valid.shape[1] == self.test.shape[1]:
             return True
         else:
             print('error , all dataset must have same shape')
