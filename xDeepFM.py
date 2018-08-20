@@ -176,7 +176,7 @@ class xDeepFM(object):
                                                                   combiner="sum"
                                                                   )
                 first_multi_result.append(temp_multi_result)
-                first_multi_result = tf.concat(first_multi_result, axis=1)
+            first_multi_result = tf.concat(first_multi_result, axis=1)
             first_embedding_output = tf.concat([first_single_result, first_numerical_result,first_multi_result], axis=1)
         else:
             first_embedding_output = tf.concat([first_single_result, first_numerical_result], axis=1)
@@ -204,7 +204,7 @@ class xDeepFM(object):
                                                                   combiner="sum"
                                                                   )
                 second_multi_result.append(temp_multi_result)
-                second_multi_result = tf.concat(second_multi_result, axis=1)
+            second_multi_result = tf.concat(second_multi_result, axis=1)
             # DNN input
             self.DNN_input = tf.concat([second_single_result,second_multi_result], axis=1)
         else:
