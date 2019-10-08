@@ -238,10 +238,10 @@ class xDeepFM(object):
         final_len = 0
         field_nums = [self.field_size]
         if Config.multi_features:
-            nn_input = tf.reshape(tf.concat([second_single_result, second_multi_result], axis=1),
+            nn_input = tf.reshape(tf.concat([second_single_result, second_numerical_result,second_multi_result], axis=1),
                                   shape=[-1, self.field_size, Config.embedding_size])
         else:
-            nn_input = tf.reshape(second_single_result,
+            nn_input = tf.reshape(tf.concat([second_single_result,second_numerical_result], axis=1),
                                   shape=[-1, self.field_size, Config.embedding_size])
         cin_layers = [nn_input]
         split_tensor_0 = tf.split(nn_input, D * [1], 2)
